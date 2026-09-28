@@ -132,3 +132,181 @@ The main business metrics were calculated using the following logic.
 
 ```text
 Revenue = Quantity * Unit Price
+### Total Cost
+Total Cost = Quantity * Unit Cost
+### Profit
+Profit = Quantity * (Unit Price - Unit Cost)
+### Profit Margin
+Profit Margin = Profit / Revenue
+### Cancellation Rate
+Cancellation Rate = Cancelled Orders / Total Orders
+## 8. Project Workflow
+
+The project follows the workflow below:
+
+```text
+Monthly Transaction Files
+        |
+        v
+Power Query Cleaning and Transformation
+        |
+        v
+Staging Tables
+        |
+        v
+SQL Data Validation
+        |
+        v
+Fact and Dimension Model
+        |
+        v
+SQL Business Analysis
+        |
+        v
+Power BI Data Model and DAX
+        |
+        v
+Dashboard and Business Insights
+Power Query was used to combine and clean the monthly transaction files before analysis.
+The main preparation steps included:
+- Combining monthly files
+- Checking missing values
+- Checking duplicate records
+- Standardizing column names and data types
+- Standardizing order status values
+- Handling missing customer information
+- Preparing fact and dimension tables
+The final analytical model consists of one fact table and four main dimension tables:
+- fact_order
+- dim_customer
+- dim_product
+- dim_payment
+- dim_shipping
+Detailed field descriptions are available in the [Data Dictionary](docs/data_dictionary.md).
+### 9. Data Validation
+SQL was used to validate data quality before performing business analysis.
+The validation process included:
+- Row count checks
+- Missing value checks
+- Duplicate ID checks
+- Missing key field checks
+- Customer ID matching
+- Product ID matching
+- Payment ID matching
+- Shipping ID matching
+- Referential integrity checks
+The final model contains:
+- 20,000 orders
+- 12,136 customers
+- 13 products
+- 5 payment methods
+- 5 shipping methods
+No unmatched customer, product, payment, or shipping keys were identified in the validated dataset.
+### 10. SQL Analysis
+SQL was used to analyze the main areas of business performance.
+The analysis covers:
+- Product performance
+- Customer performance
+- Shipping performance
+- Payment performance
+- Shipping and payment cancellation risk
+- Monthly revenue and profit trends
+Advanced SQL techniques used in the project include:
+- Multi-table JOINs
+- Aggregations
+- CASE WHEN
+- Common Table Expressions
+- RANK
+- LAG
+- Window functions
+- Date functions
+- NULLIF
+Advanced Analysis
+Product revenue was ranked using a Common Table Expression and the RANK window function.
+The product revenue ranking was:
+1. Smartphone
+2. Smartwatch
+3. Laptop
+4. Tablet
+5. Headphones
+Monthly revenue growth was analyzed using the LAG window function to compare each month with the previous month.
+Customer revenue and profit were also aggregated and ranked to identify high-value customers.
+SQL Files
+[01_database_schema.sql](SQL/01_database_schema.sql)
+Creates the fact and dimension tables, defines primary and foreign keys, and loads data from staging tables.
+[02_data_validation.sql](SQL/02_data_validation.sql)
+Contains data quality checks for missing values, duplicates, row counts, key matching, and referential integrity.
+[03_business_analysis.sql](SQL/03_business_analysis.sql)
+Contains the main product, customer, shipping, payment, cancellation risk, and monthly performance analysis.
+[04_advanced_analysis.sql](SQL/04_advanced_analysis.sql)
+Contains advanced analysis using CTEs, RANK, LAG, and window functions.
+### 11. Analytical Limitations
+Partial Months
+The first and last months in the dataset are incomplete.
+The dataset begins during September 2023 and ends during September 2024.
+Month-over-month comparisons involving these periods should therefore be interpreted carefully because changes may partly reflect differences in the number of available transaction days.
+Full-month periods should be prioritized when evaluating monthly trends.
+Revenue Definition
+The current project calculates revenue and profit across all order records, including cancelled orders.
+Cancellation is analyzed separately using cancellation rate.
+For a production reporting environment, the definition of realized revenue should be confirmed with business stakeholders to determine whether cancelled orders should be excluded.
+Causality
+The analysis identifies patterns and associations but does not establish causal relationships.
+For example, a higher cancellation rate for a specific shipping and payment combination does not prove that either method directly causes cancellation.
+Additional operational or customer data would be required to investigate the underlying causes.
+Customer Data
+Customer analysis is limited by the available customer attributes, mainly customer ID, age, and gender.
+Additional information such as customer location, acquisition channel, customer segment, or marketing activity could support deeper customer analysis.
+### 12. Repository Structure
+Sales_Customer/
+|
+|-- README.md
+|
+|-- dashboard/
+|   |-- Power BI dashboard file
+|
+|-- images/
+|   |-- overview.jpg
+|   |-- product.jpg
+|   |-- customer.jpg
+|   |-- shipping&payment.jpg
+|   |-- Detail.jpg
+|
+|-- SQL/
+|   |-- 01_database_schema.sql
+|   |-- 02_data_validation.sql
+|   |-- 03_business_analysis.sql
+|   |-- 04_advanced_analysis.sql
+|
+|-- docs/
+|   |-- data_dictionary.md
+Recommended Review Order
+1. Review the project overview and key business findings.
+2. Review the Power BI dashboard screenshots.
+3. Open the Power BI file for interactive analysis.
+4. Review the SQL files for data modeling, validation, and analysis.
+5. Review the data dictionary for detailed field definitions.
+13. Tools and Skills
+Tools
+- Power BI
+- Power Query
+- DAX
+- Microsoft SQL Server
+- SQL Server Management Studio
+- GitHub
+Skills Demonstrated
+- Data cleaning and transformation
+- Data validation
+- Data modeling
+- Dimensional modeling
+- Relational database design
+- SQL joins and aggregations
+- CTEs and window functions
+- KPI development
+- Customer analysis
+- Cohort retention analysis
+- Product performance analysis
+- Profitability analysis
+- Cancellation analysis
+- Dashboard development
+- Business insight communication

@@ -1,5 +1,4 @@
 # Data Dictionary
-# Data Dictionary
 
 This document describes the main tables and fields used in the Sales & Customer BI project.
 

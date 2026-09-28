@@ -3,16 +3,16 @@ End-to-end Sales &amp; Customer Business Intelligence project using Power BI and
 ## Dashboard Preview
 
 ### Executive Overview
-![Executive Overview](images/overview.png)
+![Executive Overview](images/overview.jpg)
 
 ### Product Performance
-![Product Performance](images/product.png)
+![Product Performance](images/product.jpg)
 
 ### Customer Analytics
-![Customer Analytics](images/customer.png)
+![Customer Analytics](images/customer.jpg)
 
 ### Shipping & Payment Analysis
-![Shipping and Payment Analysis](images/shipping&payment.png)
+![Shipping and Payment Analysis](images/shipping&payment.jpg)
 
 ### Detail View
-![Detail View](images/Detail.png)
+![Detail View](images/Detail.jpg)

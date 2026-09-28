@@ -149,33 +149,33 @@ Profit Margin = Profit / Revenue
 ```text
 Cancellation Rate = Cancelled Orders / Total Orders
 ```
-## 8. Project Workflow
+## Project Workflow
 
-The project follows the workflow below:
+The project contains two analytical workflows built from the same source data.
 
 ```text
 Monthly Transaction Files
         |
-        v
-Power Query Cleaning and Transformation
+        |-------------------------------|
+        |                               |
+        v                               v
+Power Query                    SQL Staging Tables
+        |                               |
+        v                               v
+Data Cleaning                  Data Validation
+and Transformation                      |
+        |                               v
+        v                      Fact and Dimension Model
+Power BI Data Model                     |
+        |                               v
+        v                      SQL Business Analysis
+DAX Measures                    and Advanced SQL
         |
         v
-Staging Tables
+Power BI Dashboard
         |
         v
-SQL Data Validation
-        |
-        v
-Fact and Dimension Model
-        |
-        v
-SQL Business Analysis
-        |
-        v
-Power BI Data Model and DAX
-        |
-        v
-Dashboard and Business Insights
+Business Insights
 ```
 Power Query was used to combine and clean the monthly transaction files before analysis.
 The main preparation steps included:
@@ -193,7 +193,7 @@ The final analytical model consists of one fact table and four main dimension ta
 - dim_payment
 - dim_shipping
 Detailed field descriptions are available in the [Data Dictionary](docs/data_dictionary.md).
-### 9. Data Validation
+## Data Validation
 SQL was used to validate data quality before performing business analysis.
 The validation process included:
 - Row count checks
@@ -212,7 +212,7 @@ The final model contains:
 - 5 payment methods
 - 5 shipping methods
 No unmatched customer, product, payment, or shipping keys were identified in the validated dataset.
-### 10. SQL Analysis
+## SQL Analysis
 SQL was used to analyze the main areas of business performance.
 The analysis covers:
 - Product performance
@@ -258,8 +258,8 @@ Contains the main product, customer, shipping, payment, cancellation risk, and m
 
 Contains advanced analysis using CTEs, RANK, LAG, and window functions.
 
-### 11. Analytical Limitations
-## Partial Months
+## Analytical Limitations
+### Partial Months
 
 The first and last months in the dataset are incomplete.
 
@@ -270,7 +270,7 @@ available transaction days.
 
 Full-month periods should be prioritized when evaluating monthly trends.
 
-## Revenue Definition
+### Revenue Definition
 
 The current project calculates revenue and profit across all order records, including cancelled orders.
 
@@ -279,7 +279,7 @@ Cancellation is analyzed separately using cancellation rate.
 For a production reporting environment, the definition of realized revenue should be confirmed with business stakeholders to determine whether cancelled orders 
 should be excluded.
 
-## Causality
+### Causality
 
 The analysis identifies patterns and associations but does not establish causal relationships.
 
@@ -287,13 +287,13 @@ For example, a higher cancellation rate for a specific shipping and payment comb
 
 Additional operational or customer data would be required to investigate the underlying causes.
 
-##  Customer Data
+###  Customer Data
 
 Customer analysis is limited by the available customer attributes, mainly customer ID, age, and gender.
 
 Additional information such as customer location, acquisition channel, customer segment, or marketing activity could support deeper customer analysis.
 
-### 12. Repository Structure
+## Repository Structure
 
 ```text
 Sales_Customer/
@@ -325,27 +325,16 @@ Recommended Review Order
 3. Open the Power BI file for interactive analysis.
 4. Review the SQL files for data modeling, validation, and analysis.
 5. Review the data dictionary for detailed field definitions.
-### 13. Tools and Skills
-Tools
-- Power BI
-- Power Query
-- DAX
-- Microsoft SQL Server
-- SQL Server Management Studio
-- GitHub
-Skills Demonstrated
-- Data cleaning and transformation
-- Data validation
-- Data modeling
+## Tools and Skills
+
+Power BI, Power Query, DAX, SQL Server, SSMS, GitHub
+
+Skills:
+- Data cleaning and validation
+- SQL analysis
 - Dimensional modeling
-- Relational database design
-- SQL joins and aggregations
 - CTEs and window functions
 - KPI development
-- Customer analysis
-- Cohort retention analysis
-- Product performance analysis
-- Profitability analysis
-- Cancellation analysis
-- Dashboard development
+- Customer and cohort analysis
+- Power BI dashboard development
 - Business insight communication

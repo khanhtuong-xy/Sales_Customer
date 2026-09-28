@@ -28,11 +28,93 @@ The main questions are:
 5. Are there specific shipping and payment combinations associated with higher cancellation risk?
 6. How does business performance change over time?
 
-## Dashboard Overview
+## Power BI Dashboard
+
+The Power BI report contains five main pages designed to support different levels of business analysis, from high-level performance monitoring to detailed transaction investigation.
+
+### Executive Overview
 
 ![Executive Overview](images/overview.jpg)
 
-The Executive Overview provides a high-level view of revenue, profit, profit margin, order volume, customer volume, cancellation rate, product performance, and monthly trends.
+The Executive Overview provides a high-level summary of overall business performance.
+
+It focuses on key indicators such as:
+
+- Revenue
+- Profit
+- Profit margin
+- Total orders
+- Total customers
+- Cancellation rate
+- Monthly sales trends
+- Product performance
+
+This page is designed to help users quickly understand the overall performance of the business before exploring more detailed analysis.
+
+### Product Performance
+
+![Product Performance](images/product.jpg)
+
+The Product Performance page compares product categories based on sales and profitability.
+
+The main metrics include:
+
+- Revenue
+- Profit
+- Profit margin
+- Units sold
+- Average rating
+- Cancellation rate
+
+This page helps identify which product categories contribute the most revenue and which categories provide stronger profitability.
+
+### Customer Analytics
+
+![Customer Analytics](images/customer.jpg)
+
+The Customer Analytics page focuses on purchasing behavior and customer value.
+
+The analysis includes:
+
+- Customer revenue
+- Number of orders
+- Purchase frequency
+- Customer characteristics
+- New and returning customers
+- Customer retention
+- Cohort retention analysis
+
+This page helps identify valuable customers and examine how customer behavior develops over time.
+
+### Shipping and Payment Analysis
+
+![Shipping and Payment Analysis](images/shipping&payment.jpg)
+
+The Shipping and Payment Analysis page focuses on operational performance and cancellation risk.
+
+The analysis includes:
+
+- Shipping method performance
+- Payment method performance
+- Revenue and profit
+- Profit margin
+- Order volume
+- Cancellation rate
+- Shipping and payment risk heatmap
+- Shipping performance quadrant
+- Profit per order by shipping and payment combination
+
+This page helps identify shipping and payment combinations that may require further operational investigation.
+
+### Detail View
+
+![Detail View](images/Detail.jpg)
+
+The Detail View provides transaction-level information for deeper investigation.
+
+It allows users to review individual order records after identifying a pattern or unusual result from the main analytical pages.
+
+This page supports drill-down analysis and helps connect high-level dashboard findings with the underlying transaction data.
 
 ## Key Business Findings
 
